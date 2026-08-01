@@ -1,1 +1,0 @@
-Add your photos by editing index.html placeholders. Add a file named music.mp3 in this folder for background music.
