@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Happy Friendship Day 💙</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#000;color:#fff;overflow-x:hidden}
+#bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.35);z-index:-2}
+.overlay{position:fixed;inset:0;background:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.6));z-index:-1}
+.card{max-width:760px;margin:24px auto;padding:24px;background:rgba(255,255,255,.12);backdrop-filter:blur(12px);border-radius:22px;text-align:center}
+.cover{width:220px;border-radius:18px;border:4px solid #fff}
+.mem{width:90%;max-width:320px;border-radius:14px;margin:10px}
+#musicBtn{position:fixed;bottom:18px;right:18px;width:56px;height:56px;border-radius:50%;border:none;background:#ff4d8d;color:#fff;font-size:24px;cursor:pointer;z-index:9999}
+#surprise{padding:12px 24px;border:none;border-radius:30px;background:#ff4d8d;color:#fff;font-size:18px;cursor:pointer}
+.float{position:fixed;top:-40px;pointer-events:none;z-index:999}
+</style>
+</head>
+<body>
+<video id="bg" autoplay muted loop playsinline><source src="video1.mp4"></video>
+<div class="overlay"></div>
+
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+<button id="musicBtn">🎵</button>
+
+<div class="card">
+<h1>💙 Happy Friendship Day, Shravani! 💙</h1>
+<h3>From Mayur 😊</h3>
+
+<img class="cover" src="cover.jpg">
+
+<p>🌸 Meeting you was one of my favorite plot twists.</p>
+<p>😂 Friendship cancellation requests are rejected.</p>
+<p>🍫 Late reply fine = One Dairy Milk.</p>
+<p>❤️ Thank you for making ordinary days brighter.</p>
+<p>✨ I hope we keep laughing, talking and creating memories together.</p>
+
+<h2>🎥 Memories</h2>
+<video class="mem" controls src="video2.mp4"></video>
+<video class="mem" controls src="video3.mp4"></video>
+
+<br><br>
+<button id="surprise">🎁 Final Surprise</button>
+<div id="msg"></div>
+</div>
+
+<script>
+const music=document.getElementById("bgMusic");
+const btn=document.getElementById("musicBtn");
+
+document.addEventListener("click",()=>{music.play().catch(()=>{});},{once:true});
+
+btn.onclick=()=>{
+ if(music.paused){music.play();btn.textContent="⏸️";}
+ else{music.pause();btn.textContent="🎵";}
+};
+
+function makeFloat(symbol){
+ let d=document.createElement("div");
+ d.className="float";
+ d.textContent=symbol;
+ d.style.left=Math.random()*100+"vw";
+ d.style.fontSize=(18+Math.random()*22)+"px";
+ document.body.appendChild(d);
+ let y=-40,x=parseFloat(d.style.left),speed=2+Math.random()*3;
+ let id=setInterval(()=>{
+   y+=speed;
+   d.style.top=y+"px";
+   d.style.left=(x+Math.sin(y/35)*18)+"px";
+   if(y>innerHeight+50){clearInterval(id);d.remove();}
+ },16);
+}
+
+setInterval(()=>{
+ ["💖","💙","✨","🌸","🦋"].forEach(e=>{if(Math.random()<0.45)makeFloat(e);});
+},500);
+
+document.getElementById("surprise").onclick=()=>{
+ document.getElementById("msg").innerHTML="<h2>💖 Happy Friendship Day!</h2><p>No matter where life takes us, I hope this friendship always stays special.<br><b>– Mayur</b></p>";
+ for(let i=0;i<180;i++){
+   setTimeout(()=>makeFloat(["🎉","💖","✨","🌸","💙"][Math.floor(Math.random()*5)]),i*12);
+ }
+};
+</script>
+</body>
+</html>
