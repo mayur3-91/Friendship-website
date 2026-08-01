@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Shravani 💙</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<audio id="bgm" loop>
+  <!-- Add your own music.mp3 in this folder -->
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="intro" class="screen">
+  <div class="gift">🎁</div>
+  <h2 id="typing"></h2>
+  <button onclick="openGift()">Open Your Surprise</button>
+</div>
+
+<div id="main" class="hidden">
+  <div class="stars"></div>
+  <div class="glass">
+    <h1>💙 Happy Friendship Day, Shravani!</h1>
+    <h3>From Mayur 😊</h3>
+
+    <div id="countdown"></div>
+
+    <div class="message" id="message"></div>
+
+    <div class="gallery">
+      <div class="photo">📷 Add Photo</div>
+      <div class="photo">📷 Add Photo</div>
+      <div class="photo">📷 Add Photo</div>
+    </div>
+
+    <button onclick="finalSurprise()">🎉 Final Surprise</button>
+
+    <div id="final" class="hidden">
+      <h2>💖 Thank You!</h2>
+      <p>
+      Meeting you was one of my favorite plot twists.<br>
+      Thank you for making ordinary days brighter.<br><br>
+      I hope we keep laughing, talking and creating memories together.<br><br>
+      <b>Happy Friendship Day, Shravani! 💙</b><br>
+      – Mayur
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
